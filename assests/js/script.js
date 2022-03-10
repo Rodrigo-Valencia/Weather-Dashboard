@@ -7,7 +7,7 @@ var forecastTitle = document.querySelector("#forecast");
 var forecastContainerEl = document.querySelector("#fiveday-container");
 var pastSearchButtonEl = document.querySelector("#past-search-buttons");
 
-var formSubmitHandler = function (event) {
+var formSubmitHandler = function () {
     // event.preventDefualt();
     var city = cityInputEl.value.trim();
     if (city) {
@@ -20,7 +20,8 @@ var formSubmitHandler = function (event) {
     }
 
     saveSearch();
-    pastSearchButtonEl(city);
+    pastSearch(city);
+    debugger
 }
 
 var saveSearch = function() {
@@ -37,38 +38,44 @@ var getCityWeather = function(city) {
             displayWeather(data, city);
         });
     });
+    console.log(apiKey);
 };
 
 var displayWeather = function(weather, searchCity) {
+    // clear old content
     weatherContainerEl.textContent = "";
     citySearchInputEl.textContent = searchCity;
 
     console.log(weather);
 
+    // date element
     var currentDate = document.createElement("span")
     currentDate.textContent = " (" + moment(weather.dt.value).format("MM D, YYYY") + ") ";
     citySearchInputEl.appendChild(currentDate);
 
+    // img element
     var weatherIcon = document.createElement("img")
     weatherIcon.setAttribute("src", 'https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png');
     citySearchInputEl.appendChild(weatherIcon);
 
+    // span element - temp data
     var temperatureEl = document.createElement("span");
     temperatureEl.textContent = "Temperature: " + weather.main.temp + " F";
     temperatureEl.classList = "list-group-item"
 
+    // span element - humidity data
     var humidityEl = document.createElement("span");
     humidityEl.textContent = "Humidity: " + weather.main.humidity + " %";
     humidityEl.classList = "list-group-item"
 
+    // span element - wind data
     var windSpeedEl = document.createElement("span");
     windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
     windSpeedEl.classList = "list-group-item"
 
+    // append to container
     weatherContainerEl.appendChild(temperatureEl);
-
     weatherContainerEl.appendChild(humidityEl);
-
     weatherContainerEl.appendChild(windSpeedEl);
 
     var lat = weather.coord.lat;
@@ -129,7 +136,7 @@ var get5Day = function (city) {
 };
 
 var display5Day = function (weather) {
-    forecastContainerEl.textContent = ""
+    forecastContainerEl.textContent = "";
     forecastTitle.textContent = "5-Day Forecast: ";
 
     var forecast = weather.list;
@@ -177,7 +184,7 @@ var pastSearch = function (pastSearch) {
     pastSearchEl = document.createElement("button");
     pastSearchEl.textContent = pastSearch;
     pastSearchEl.classList = "d-flex w-100 btn-light border p-2";
-    pastSearchEl.setAttribute("data-city", pastSearch)
+    pastSearchEl.setAttribute("data-city", pastSearch);
     pastSearchEl.setAttribute("type", "submit");
 
     pastSearchButtonEl.prepend(pastSearchEl);
@@ -192,4 +199,4 @@ var pastSearchHandler = function(event) {
 }
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
-pastSearchButtonEl.addEventListener("click", pastSearchHandler);
+// pastSearchButtonEl.addEventListener("click", pastSearchHandler);
