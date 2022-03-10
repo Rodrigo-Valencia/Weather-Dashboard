@@ -1,56 +1,29 @@
-h1 {
-    font-size: 50px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    color: black;
+.search-column {
+    background-color: #D3D3D3;
 }
 
-#content {
-    display: none;
+.list-group-item {
+    line-height: 0.5;
+    border: none;
 }
 
-.navbar {
-    height: 150px;
+.card-body {
+    flex: auto;
 }
 
-#cityDetail,
-#uvIndexColor,
-li {
-    color: #4D4F53;
+span.severe {
+    padding: 3px;
+    background-color: red;
+    color: white;
 }
 
-#searchResults,
-#cityDetails,
-.card {
-    background-color: #5A6C73;
+span.moderate {
+    padding: 3px;
+    background-color: yellow;
 }
 
-#searchResults {
-    height: 100vh;
-}
-
-#five-day .card {
-    border: 1px solid white;
-}
-
-#searchHistory li {
-    background-color: #97A6A4;
-    color: #f8f8ff;
-}
-
-p {
-    color: #D9B779;
-}
-
-h1, h2, h3, h4, h5 {
-    font-family: 'Raleway', sans-serif;
-}
-
-h2, h3, h4, h5 {
-    color: #f8f8ff;
-}
-
-body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #97A6A4;
+span.favorable {
+    padding: 3px;
+    background-color: green;
+    color: white;
 }
