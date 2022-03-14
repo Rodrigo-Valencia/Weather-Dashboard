@@ -30,6 +30,8 @@ searchButton.click(function () {
             var local = localStorage.setItem(keyCount, response.name);
             keyCount = keyCount + 1;
 
+            console.log(local)
+
             var currentCard = $(".currentCard").append("<div>").addClass("card-body");
             currentCard.empty();
             var currentName = currentCard.append("<p>");

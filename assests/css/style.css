@@ -19,9 +19,13 @@ img {
 
 .fiveDayColor {
     padding: 20px;
-    background-color: #1e90ff;
+    background-color: darkblue;
     color: white;
     float: left;
     margin: 10px;
     border: 1px solid lightgray;
+}
+
+p {
+    font-weight: 1000;
 }
