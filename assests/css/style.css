@@ -1,31 +1,7 @@
-ul {
-    list-style: none;
+.currentWeather {
+    justify-content: center;
 }
 
-li {
-    border-bottom: 1px solid lightgray;
-    text-align: left;
-    padding-left: 10px;
-}
-
-.card-title {
-    font-size: 20px;
-}
-
-img {
-    width: 100px;
-    height: 100px;
-}
-
-.fiveDayColor {
-    padding: 20px;
-    background-color: darkblue;
-    color: white;
-    float: left;
-    margin: 10px;
-    border: 1px solid lightgray;
-}
-
-p {
-    font-weight: 1000;
+.fiveDayForecast {
+    justify-content: center;
 }
