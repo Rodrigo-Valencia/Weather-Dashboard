@@ -9,6 +9,16 @@ const fiveDayHeader = document.querySelector('#fiveDayHeader');
 const fiveDayWind = document.querySelector('#fiveDayWind');
 const fiveDayTemp = document.querySelector('#fiveDayTemp');
 const fiveDayHum = document.querySelector('#fiveDayHum');
+const cityURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
+const fiveDayURL = 'https://api.openweathermap.org/data/2.5/forecast?';
+const apiKey = '574c084447b2b4671be2b341b79a66d0';
+
+const moment = moment();
+console.log(moment.toString());
+
+const today = new Date();
+const date = moment().format('MMMM Do YYYY');
+document.getElementById('currentDate').value = date;
 
 
 // one city weather
